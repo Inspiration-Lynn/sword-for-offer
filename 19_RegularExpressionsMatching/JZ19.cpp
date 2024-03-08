@@ -1,4 +1,5 @@
 /* 正则表达式匹配：回溯算法经典例子 */
+// 我的独立实现：将模式串拆解出unit，包括纯字母字符 & · & *，但其实没必要
 #include <iostream>
 #include <string>
 #include <cassert>
