@@ -10,38 +10,38 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <cstdio>
 #include "BinaryTree.h"
 
-BinaryTreeNode *CreateBinaryTreeNode(int value)
+TreeNode *CreateBinaryTreeNode(int value)
 {
-    BinaryTreeNode *pNode = new BinaryTreeNode();
-    pNode->m_nValue = value;
-    pNode->m_pLeft = nullptr;
-    pNode->m_pRight = nullptr;
+    TreeNode *pNode = new TreeNode();
+    pNode->val = value;
+    pNode->left = nullptr;
+    pNode->right = nullptr;
 
     return pNode;
 }
 
-void ConnectTreeNodes(BinaryTreeNode *pParent, BinaryTreeNode *pLeft, BinaryTreeNode *pRight)
+void ConnectTreeNodes(TreeNode *pParent, TreeNode *pLeft, TreeNode *pRight)
 {
     if (pParent != nullptr)
     {
-        pParent->m_pLeft = pLeft;
-        pParent->m_pRight = pRight;
+        pParent->left = pLeft;
+        pParent->right = pRight;
     }
 }
 
-void PrintTreeNode(const BinaryTreeNode *pNode)
+void PrintTreeNode(const TreeNode *pNode)
 {
     if (pNode != nullptr)
     {
-        printf("value of this node is: %d\n", pNode->m_nValue);
+        printf("value of this node is: %d\n", pNode->val);
 
-        if (pNode->m_pLeft != nullptr)
-            printf("value of its left child is: %d.\n", pNode->m_pLeft->m_nValue);
+        if (pNode->left != nullptr)
+            printf("value of its left child is: %d.\n", pNode->left->val);
         else
             printf("left child is nullptr.\n");
 
-        if (pNode->m_pRight != nullptr)
-            printf("value of its right child is: %d.\n", pNode->m_pRight->m_nValue);
+        if (pNode->right != nullptr)
+            printf("value of its right child is: %d.\n", pNode->right->val);
         else
             printf("right child is nullptr.\n");
     }
@@ -53,26 +53,26 @@ void PrintTreeNode(const BinaryTreeNode *pNode)
     printf("\n");
 }
 
-void PrintTree(const BinaryTreeNode *pRoot)
+void PrintTree(const TreeNode *pRoot)
 {
     PrintTreeNode(pRoot);
 
     if (pRoot != nullptr)
     {
-        if (pRoot->m_pLeft != nullptr)
-            PrintTree(pRoot->m_pLeft);
+        if (pRoot->left != nullptr)
+            PrintTree(pRoot->left);
 
-        if (pRoot->m_pRight != nullptr)
-            PrintTree(pRoot->m_pRight);
+        if (pRoot->right != nullptr)
+            PrintTree(pRoot->right);
     }
 }
 
-void DestroyTree(BinaryTreeNode *pRoot)
+void DestroyTree(TreeNode *pRoot)
 {
     if (pRoot != nullptr)
     {
-        BinaryTreeNode *pLeft = pRoot->m_pLeft;
-        BinaryTreeNode *pRight = pRoot->m_pRight;
+        TreeNode *pLeft = pRoot->left;
+        TreeNode *pRight = pRoot->right;
 
         delete pRoot;
         pRoot = nullptr;
